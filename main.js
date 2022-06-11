@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 
 const loadMainWindow = () => {
@@ -10,11 +10,12 @@ const loadMainWindow = () => {
             nodeIntegration: true,
             contextIsolation: false
         },
-        frame: false
+        resizable: false,
+        frame: true
     });
 
     mainWindow.loadFile(path.join(__dirname, "index.html"));
-    mainWindow.webContents.openDevTools()
+    // mainWindow.webContents.openDevTools()
 }
 
 app.on("ready", loadMainWindow);
@@ -24,3 +25,7 @@ app.on("window-all-closed", () => {
       app.quit();
     }
 });
+
+ipcMain.on("close", (evt, arg) => {
+    app.quit();
+})

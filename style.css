@@ -1,9 +1,19 @@
 html, body {
     margin: 0;
+    height: 100%;
+    width: 100%;
+    user-select: none;
 }
 
 .top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 0.5rem;
     background-color: #555;
     -webkit-app-region: drag;
+}
+
+.top-close {
+    background-color: red;
 }

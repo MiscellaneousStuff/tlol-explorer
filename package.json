@@ -1,0 +1,24 @@
+{
+  "name": "tlol-explorer",
+  "version": "1.0.0",
+  "description": "TLoL (Visual Dataset Manager) - League of Legends Dataset Manager",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MiscellaneousStuff/tlol-explorer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MiscellaneousStuff/tlol-explorer/issues"
+  },
+  "homepage": "https://github.com/MiscellaneousStuff/tlol-explorer#readme",
+  "dependencies": {
+    "electron": "^19.0.4"
+  }
+}

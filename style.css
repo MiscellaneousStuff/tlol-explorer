@@ -21,8 +21,25 @@ html, body {
     background-color: red;
 }
 
+.options {
+    padding: 1rem;
+}
+
+.options-table {
+    width: 100%;
+}
+
 .replay {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     padding: 1rem;
+}
+
+input[type="text"] {
+    width: 100%;
+}
+
+td:first-of-type {
+    width: 10rem;
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Electron App</title>
+    <title>TLoL-Explorer</title>
     <link rel="stylesheet" href="style.css" />
     <script src="app.js"></script>
 </head>
@@ -14,49 +14,75 @@
         <div class="top-close" id="top-close">Close</div>
     </div>
     <div class="options" id="options">
-        Replay Speed:
-        <select id="options-replay_speed">
-            <option value="1"> x1</option>
-            <option value="2"> x2</option>
-            <option value="4"> x4</option>
-            <option value="8"> x8</option>
-            <option value="16">x16</option>
-        </select>
-        <br/>
-
-        End Time:
-        <input type="type" id="options-end_time" placeholder="end time" />
-        <br/>
-
-        Game Directory:
-        <input type="type" id="options-game_dir" placeholder="game directory" />
-        <br/>
-
-        Replay Directory:
-        <input type="type" id="options-replay_dir" placeholder="replay directory" />
-        <br/>
-        
-        Dataset Directory:
-        <input type="type" id="options-dataset_dir" placeholder="dataset directory" />
-        <br/>
-
-        DB Directory:
-        <input type="type" id="options-db_dir" placeholder="db directory" />
-        <br/>
-
-        Scraper Directory:
-        <input type="type" id="options-scraper_dir" placeholder="scraper directory" />
-        <br/>
+        <table class="options-table">
+            <tbody class="options-table-body">
+                <tr>
+                    <td>Replay Speed</td>
+                    <td>
+                        <select id="options-replay_speed">
+                        <option value="1"> x1</option>
+                        <option value="2"> x2</option>
+                        <option value="4"> x4</option>
+                        <option value="8"> x8</option>
+                        <option value="16">x16</option>
+                        <option value="24">x24</option>
+                        <option value="32">x32</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        End Time
+                    </td>
+                    <td>
+                        <input type="text" id="options-end_time" placeholder="end time" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Game Directory
+                    </td>
+                    <td>
+                        <input type="text" id="options-game_dir" placeholder="game directory" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Replay Directory
+                    </td>
+                    <td>
+                        <input type="text" id="options-replay_dir" placeholder="replay directory" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Dataset Directory
+                    </td>
+                    <td>
+                        <input type="text" id="options-dataset_dir" placeholder="dataset directory" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        DB Directory
+                    </td>
+                    <td>
+                        <input type="text" id="options-db_dir" placeholder="db directory" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Scraper Directory
+                    </td>
+                    <td>
+                        <input type="text" id="options-scraper_dir" placeholder="scraper directory" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <div class="tabs">
-        <div class="tab-list">
-
-        </div>
-        <div class="tab-content">
-            <div class="replays" id="replays">
-
-            </div>
-        </div>
+    <div class="replays" id="replays">
+        <!-- Replays filled here...-->
     </div>
 </body>
 

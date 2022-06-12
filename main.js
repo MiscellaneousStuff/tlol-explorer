@@ -1,11 +1,14 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 
+let mainWindow;
+
 const loadMainWindow = () => {
-    const mainWindow = new BrowserWindow({
+    mainWindow = new BrowserWindow({
         autoHideMenuBar: true,
         width : 1200,
         height: 800,
+        title: "TLoL-Explorer",
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false
@@ -29,3 +32,9 @@ app.on("window-all-closed", () => {
 ipcMain.on("close", (evt, arg) => {
     app.quit();
 })
+
+ipcMain.on("select-dir", () => {
+    dir = dialog.showOpenDialog(mainWindow, {
+        properties: ["openDirectory"]
+    });
+});

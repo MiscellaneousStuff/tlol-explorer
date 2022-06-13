@@ -44,7 +44,11 @@ const scrape = (file, done) => {
         if (endtime)
             execStr += ` --end_time ${endtime}`;
         console.log(execStr);
-        exec(execStr, (err, stdout, stderr) => {console.log(stdout)});
+        exec(execStr, (err, stdout, stderr) => {
+            console.log(err)
+            console.log(stdout)
+            updateReplays(localStorage.getItem("options-replay_dir"));
+        });
     } else {
         alert(`${file} already scraped!`)
     }
@@ -105,6 +109,18 @@ const dbExists = file => {
     return exists;
 };
 
+const toggleView = (id) => {
+    const current = $(id).style.display;
+    if (current == "none") {
+        $(id + "-toggle").innerHTML = "Collapse";
+        $(id).style.display = "block";
+    } else {
+
+        $(id + "-toggle").innerHTML = "Expand";
+        $(id).style.display = "none";
+    }
+}
+
 const updateReplays = replayDir => {
     fs.readdir(replayDir, (err, files) => {
         $("replays").innerHTML = "";
@@ -129,6 +145,9 @@ const updateReplays = replayDir => {
                         </button>
                         <button ${viewStyle} onclick="view('${file}', ${dbDone})">
                             View
+                        </button>
+                        <button ${viewStyle} onclick="analyse('${file}', ${dbDone})">
+                            Analyse
                         </button>
                     </div>
                 </div>

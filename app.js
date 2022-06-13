@@ -74,6 +74,22 @@ const convert = (file, done) => {
     }
 }
 
+const view = (file, done) => {
+    console.log("view:", done)
+    if (done) {
+        const dbDir    = localStorage.getItem("options-db_dir");
+        let gameIdOnly = file.split(".")[0].split("-")[1];
+
+        const execStr = `explorer.exe /select,"${dbDir}\\EUW1-${gameIdOnly}.db"`;
+        exec(execStr, (err, stdout, stderr) => {
+            console.log(err)
+            console.log(stdout)
+        });
+    } else {
+        alert(`Need to convert ${file.split(".")[0] + ".json"} first!`);
+    }
+}
+
 const jsonExists = file => {
     const jsonDir = localStorage.getItem("options-dataset_dir");
     let fi = file.split(".")[0] + ".json";
@@ -96,7 +112,8 @@ const updateReplays = replayDir => {
             const jsonDone = jsonExists(file);
             const dbDone   = dbExists(file);
             const scrapeStyle  = jsonDone ? "style='background-color: green'" : "";
-            const convertStyle = dbDone ? "style='background-color: green'" : "";
+            const convertStyle = dbDone ? "style='background-color: green'"   : "";
+            const viewStyle    = !dbDone ? "style='background-color: red'"    : "";
 
             $("replays").innerHTML += `
                 <div class="replay">
@@ -110,7 +127,7 @@ const updateReplays = replayDir => {
                         <button ${convertStyle} onclick="convert('${file}', ${dbDone})">
                             Convert
                         </button>
-                        <button>
+                        <button ${viewStyle} onclick="view('${file}', ${dbDone})">
                             View
                         </button>
                     </div>

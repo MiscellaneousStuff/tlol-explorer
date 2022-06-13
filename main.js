@@ -14,11 +14,12 @@ const loadMainWindow = () => {
             contextIsolation: false
         },
         resizable: false,
-        frame: true
+        frame: false
     });
 
     mainWindow.loadFile(path.join(__dirname, "index.html"));
-    mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools();
+    mainWindow.center();
 }
 
 app.on("ready", loadMainWindow);

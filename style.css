@@ -11,13 +11,23 @@ html, body {
 .top {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 0.5rem;
     background-color: #555;
+}
+
+.top-drag {
+    flex: 1;
+    padding: 0.5rem;
     -webkit-app-region: drag;
+    color: white;
 }
 
 .top-close {
+    background-color: #555;
+    padding: 0.5rem;
+    font-weight: 500;
+}
+
+.top-close:hover {
     background-color: red;
 }
 
@@ -42,4 +52,10 @@ input[type="text"] {
 
 td:first-of-type {
     width: 10rem;
+}
+
+.big {
+    font-size: 2rem;
+    margin: 1rem;
+    font-weight: 600;
 }
